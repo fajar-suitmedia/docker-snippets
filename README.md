@@ -1,5 +1,42 @@
 # Docker Cheat Sheet or some usefull Snippets
 
+## sample docker-compose.yml
+```
+version: '3'
+
+networks:
+   test:
+
+services:
+   site:
+      image: ubuntu:18.04
+      tty: true
+      container_name: test
+      networks:
+      - test
+```
+
+## ssh to a running container
+```
+docker exec -it container_name bash
+```
+
+## copy file from container to host machine
+```
+docker cp container_name:/root/test.txt .
+```
+
+## build a Dockerfile to an image with tag
+```
+docker build -t test_image:tag .
+
+or with custom_name.Dockerfile
+docker build -t test_image:tag -f custom_name.Dockerfile .
+
+or with argument
+docker build --build-arg var_name=value -t test_image:tag -f custom_name.Dockerfile .
+```
+
 ## save container to an image with tag
 ```
 docker commit container_id image_name:tag
