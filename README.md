@@ -37,6 +37,34 @@ or with argument
 docker build --build-arg var_name=value -t test_image:tag -f custom_name.Dockerfile .
 ```
 
+## list image
+```
+docker images
+```
+
+## remove image
+```
+docker image rm image_id
+```
+
+## list all container status
+```
+docker ps -a
+```
+
+## start, restart, stop and remove container
+```
+docker start container_id
+docker restart container_id
+docker stop container_id
+docker container rm container_id
+```
+
+## clone image
+```
+docker tag image_id image_name:tag
+```
+
 ## save container to an image with tag
 ```
 docker commit container_id image_name:tag
@@ -59,30 +87,27 @@ gzip -dk backup_image_name.tar.gz
 docker load --input backup_image_name.tar
 ```
 
-## list image
+### docker volume backup
 ```
-docker images
+./docker-volume-backup volume-name /path/backup
+
 ```
 
-## remove image
+### docker volume restore
 ```
-docker image rm image_id
+./docker-volume-restore volume-name /path/backup/backup-file.tar.gz
+
 ```
 
-## clone image
+### docker volume clone
 ```
-docker tag image_id image_name:tag
+./docker-volume-clone source-volume destination-volume
+
 ```
 
-## list all container status
+### docker volume info
 ```
-docker ps -a
+list all available volume with size
+./docker-volume-info
 ```
 
-## start, restart, stop and remove container
-```
-docker start container_id
-docker restart container_id
-docker stop container_id
-docker container rm container_id
-```
