@@ -15,7 +15,10 @@ services:
       networks:
       - test
 ```
-
+## see log container from last 30 lines
+```
+docker logs -f --tail 30 container_name
+```
 ## ssh to a running container
 ```
 docker exec -it container_name bash
